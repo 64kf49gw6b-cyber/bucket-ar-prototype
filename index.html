@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="theme-color" content="#171510">
-  <title>桶の指さし AR 試作</title>
+  <title>桶の指さし AR</title>
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
   <style>
@@ -17,15 +17,9 @@
   </style>
 </head>
 <body>
-  <div class="hint"><strong>桶の目印にカメラを向けてください</strong><span>女性と指先の線が目印に固定されます</span></div>
+  <div class="hint"><strong>桶の目印にカメラを向けてください</strong><span>目印ごとに違う向きの女性が表示されます</span></div>
   <div class="state" id="state">カメラを起動しています…</div>
-
-  <a-scene
-    mindar-image="imageTargetSrc: ./targets.mind; autoStart: true; uiScanning: false;"
-    color-space="sRGB"
-    renderer="colorManagement: true, physicallyCorrectLights: true"
-    vr-mode-ui="enabled: false"
-    device-orientation-permission-ui="enabled: false">
+  <a-scene mindar-image="imageTargetSrc: ./targets.mind; autoStart: true; uiScanning: false; maxTrack: 4;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights: true" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
     <a-assets>
       <img id="woman-right" src="./pointing-woman.svg">
       <img id="woman-left" src="./pointing-woman-left.svg">
@@ -33,22 +27,17 @@
       <img id="woman-back" src="./pointing-woman-back.svg">
     </a-assets>
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-    <a-entity id="target" mindar-image-target="targetIndex: 0">
-      <!-- One direction is selected by the QR URL parameter. -->
-      <a-image id="avatar-right" src="#woman-right" position="0 0 0.03" width="1.8" height="1.8" transparent="true" visible="false"></a-image>
-      <a-image id="avatar-left" src="#woman-left" position="0 0 0.03" width="1.8" height="1.8" transparent="true" visible="false"></a-image>
-      <a-image id="avatar-front" src="#woman-front" position="0 0 0.03" width="1.8" height="1.8" transparent="true" visible="false"></a-image>
-      <a-image id="avatar-back" src="#woman-back" position="0 0 0.03" width="1.8" height="1.8" transparent="true" visible="false"></a-image>
-    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 0"><a-image src="#woman-right" position="0 0 0.03" width="1.8" height="1.8" transparent="true"></a-image></a-entity>
+    <a-entity mindar-image-target="targetIndex: 1"><a-image src="#woman-left" position="0 0 0.03" width="1.8" height="1.8" transparent="true"></a-image></a-entity>
+    <a-entity mindar-image-target="targetIndex: 2"><a-image src="#woman-front" position="0 0 0.03" width="1.8" height="1.8" transparent="true"></a-image></a-entity>
+    <a-entity mindar-image-target="targetIndex: 3"><a-image src="#woman-back" position="0 0 0.03" width="1.8" height="1.8" transparent="true"></a-image></a-entity>
   </a-scene>
   <script>
     const state = document.getElementById('state');
-    const target = document.getElementById('target');
-    const direction = new URLSearchParams(location.search).get('d') || 'right';
-    const avatar = document.getElementById(`avatar-${direction}`) || document.getElementById('avatar-right');
-    avatar.setAttribute('visible', 'true');
-    target.addEventListener('targetFound', () => { state.textContent = '目印を認識中 — 指先の方向を確認してください'; });
-    target.addEventListener('targetLost', () => { state.textContent = '桶の目印にカメラを向けてください'; });
+    document.querySelectorAll('[mindar-image-target]').forEach((target) => {
+      target.addEventListener('targetFound', () => { state.textContent = '目印を認識中 — 指先の方向を確認してください'; });
+      target.addEventListener('targetLost', () => { state.textContent = '桶の目印にカメラを向けてください'; });
+    });
   </script>
 </body>
 </html>
