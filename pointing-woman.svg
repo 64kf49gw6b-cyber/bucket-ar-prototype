@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="9" stdDeviation="10" flood-color="#241a12" flood-opacity=".22"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="11" markerHeight="11" orient="auto-start-reverse">
+      <path d="M1 1 11 6 1 11Z" fill="#b23a2b"/>
+    </marker>
+  </defs>
+  <!-- The long line makes the intended world direction easy to verify during the prototype. -->
+  <path d="M598 355 L976 355" fill="none" stroke="#fff9e9" stroke-width="25" stroke-linecap="round"/>
+  <path d="M598 355 L976 355" fill="none" stroke="#b23a2b" stroke-width="11" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <g filter="url(#shadow)" stroke="#30261e" stroke-width="11" stroke-linejoin="round" stroke-linecap="round">
+    <!-- kimono body -->
+    <path d="M270 560 Q300 495 390 470 L475 478 Q568 515 596 640 L628 895 Q506 963 245 910 L266 692Z" fill="#f1e5c9"/>
+    <path d="M387 478 476 481 565 864 430 921 337 683Z" fill="#a74337"/>
+    <path d="M405 494 492 514 430 625 367 558Z" fill="#fff3dc"/>
+    <path d="M277 680 Q367 741 534 657 L554 731 Q392 803 270 755Z" fill="#d7b56d"/>
+    <!-- sleeve and pointing arm, extending to the right -->
+    <path d="M460 535 Q526 488 584 424 L678 350 Q720 323 755 339 L821 365 Q849 374 838 395 Q831 413 807 405 L769 393 L811 410 Q833 421 821 440 Q811 457 791 447 L750 427 L784 450 Q802 468 785 482 Q770 496 749 477 L706 446 L651 514 Q612 563 558 586Z" fill="#f0c8a8"/>
+    <path d="M458 529 Q506 486 548 450 L625 501 Q588 557 550 590Z" fill="#a74337"/>
+    <!-- head and hair -->
+    <path d="M281 345 Q270 211 377 172 Q482 174 505 294 Q506 373 450 422 L329 409Z" fill="#241f1c"/>
+    <path d="M318 294 Q329 226 393 223 Q455 228 463 306 L450 385 Q414 424 356 399 Q319 370 318 294Z" fill="#f0c8a8"/>
+    <path d="M311 281 Q341 200 418 219 Q455 231 478 287 Q435 261 397 272 Q350 292 316 329Z" fill="#241f1c"/>
+    <path d="M350 321 Q367 329 380 322" fill="none" stroke-width="8"/>
+    <path d="M413 318 Q430 324 442 315" fill="none" stroke-width="8"/>
+    <path d="M382 357 Q401 367 420 354" fill="none" stroke="#9b5547" stroke-width="7"/>
+    <path d="M378 198 Q423 144 472 193 Q460 229 418 240Z" fill="#d7b56d"/>
+  </g>
+  <circle cx="975" cy="355" r="12" fill="#fff9e9"/>
+</svg>

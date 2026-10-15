@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#171510">
+  <title>桶の指さし AR 試作</title>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+  <style>
+    html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #171510; font-family: system-ui, sans-serif; }
+    .hint { position: fixed; z-index: 5; inset: 0 0 auto; padding: 14px 16px; color: #fff7df; background: linear-gradient(#171510dd, #17151000); text-align: center; pointer-events: none; }
+    .hint strong { display: block; font-size: 16px; }
+    .hint span { font-size: 12px; opacity: .88; }
+    .state { position: fixed; z-index: 5; inset: auto 0 18px; text-align: center; color: #fff7df; font-size: 13px; text-shadow: 0 1px 5px #000; pointer-events: none; }
+    a-scene { position: fixed; inset: 0; }
+  </style>
+</head>
+<body>
+  <div class="hint"><strong>桶の目印にカメラを向けてください</strong><span>女性と指先の線が目印に固定されます</span></div>
+  <div class="state" id="state">カメラを起動しています…</div>
+
+  <a-scene
+    mindar-image="imageTargetSrc: ./targets.mind; autoStart: true; uiScanning: false;"
+    color-space="sRGB"
+    renderer="colorManagement: true, physicallyCorrectLights: true"
+    vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: false">
+    <a-assets>
+      <img id="woman" src="./pointing-woman.svg">
+    </a-assets>
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+    <a-entity id="target" mindar-image-target="targetIndex: 0">
+      <!-- The full illustration is one flat layer attached to the tracked target. -->
+      <a-image src="#woman" position="0 0 0.03" width="1.8" height="1.8" transparent="true"></a-image>
+    </a-entity>
+  </a-scene>
+  <script>
+    const state = document.getElementById('state');
+    const target = document.getElementById('target');
+    target.addEventListener('targetFound', () => { state.textContent = '目印を認識中 — 指先の方向を確認してください'; });
+    target.addEventListener('targetLost', () => { state.textContent = '桶の目印にカメラを向けてください'; });
+  </script>
+</body>
+</html>
