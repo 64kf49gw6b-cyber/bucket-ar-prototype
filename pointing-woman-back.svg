@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000">
+  <defs><filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="10" flood-color="#241a12" flood-opacity=".22"/></filter></defs>
+  <g filter="url(#shadow)" stroke="#30261e" stroke-width="11" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Back of the kimono, with obi visible -->
+    <path d="M264 557 Q300 496 390 470 L484 473 Q566 502 600 602 L630 896 Q494 955 245 909 L270 690Z" fill="#f1e5c9"/>
+    <path d="M386 476 Q437 513 481 476 L560 859 435 917 337 680Z" fill="#a74337"/>
+    <path d="M335 671 Q425 705 548 663 L568 753 Q432 785 314 751Z" fill="#d7b56d"/>
+    <path d="M360 682 Q434 705 526 674 L532 747 Q433 769 354 743Z" fill="#f1e5c9"/>
+    <!-- Arm reaching back and out to the side -->
+    <path d="M441 535 Q390 492 346 443 L269 386 Q235 361 206 374 L145 400 Q122 411 132 430 Q141 447 162 437 L197 424 L160 445 Q142 457 153 475 Q164 492 182 480 L218 460 L187 484 Q171 502 187 516 Q203 530 221 511 L257 480 L297 527 Q331 565 373 589Z" fill="#f0c8a8"/>
+    <path d="M447 529 Q408 491 375 458 L309 504 Q340 550 377 589Z" fill="#a74337"/>
+    <!-- Neck and back of head; no face is visible from this angle -->
+    <path d="M375 381 Q393 422 376 471 Q410 493 456 467 Q440 428 454 382Z" fill="#f0c8a8" stroke-width="8"/>
+    <path d="M299 316 Q300 203 385 166 Q482 165 519 251 Q549 329 495 405 Q462 440 407 438 Q343 426 309 378Z" fill="#241f1c"/>
+    <path d="M344 207 Q394 156 452 187 Q486 205 486 241 Q462 263 417 260 Q370 258 342 237Z" fill="#241f1c"/>
+    <path d="M382 201 Q421 158 460 192 Q452 227 418 241Z" fill="#d7b56d"/>
+  </g>
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000">
+  <defs><filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="10" flood-color="#241a12" flood-opacity=".22"/></filter></defs>
+  <g filter="url(#shadow)" stroke="#30261e" stroke-width="11" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Front three-quarter body and kimono -->
+    <path d="M246 560 Q280 493 374 468 L474 470 Q559 494 594 588 L642 890 Q500 955 244 906 L268 690Z" fill="#f1e5c9"/>
+    <path d="M380 474 Q464 482 552 560 L585 866 478 919 418 690Z" fill="#a74337"/>
+    <path d="M365 487 420 472 480 580 422 656 336 548Z" fill="#fff3dc"/>
+    <path d="M278 678 Q392 740 556 657 L578 734 Q409 800 267 751Z" fill="#d7b56d"/>
+    <!-- Arm reaching diagonally forward -->
+    <path d="M463 532 Q519 488 566 427 L648 360 Q684 334 716 348 L774 374 Q799 384 789 403 Q781 419 760 411 L726 398 L763 418 Q782 430 770 448 Q760 465 742 454 L706 434 L736 458 Q752 476 735 491 Q719 506 701 486 L664 454 L622 512 Q586 557 544 582Z" fill="#f0c8a8"/>
+    <path d="M458 527 Q499 486 536 451 L602 496 Q567 548 535 585Z" fill="#a74337"/>
+    <!-- Connected neck -->
+    <path d="M380 387 Q394 426 378 468 Q411 490 461 464 Q442 430 453 386Z" fill="#f0c8a8" stroke-width="8"/>
+    <!-- Hair and three-quarter smiling face -->
+    <path d="M303 313 Q302 201 386 167 Q483 163 524 251 Q551 325 500 392 L454 418 338 397Z" fill="#241f1c"/>
+    <path d="M344 287 Q349 222 405 215 Q467 216 486 278 L480 356 Q453 398 397 396 Q349 374 344 287Z" fill="#f0c8a8"/>
+    <path d="M337 278 Q356 203 424 210 Q477 217 504 267 Q467 253 432 273 Q392 292 344 320Z" fill="#241f1c"/>
+    <path d="M377 315 Q394 325 409 315 M445 312 Q460 318 472 308" fill="none" stroke-width="8"/>
+    <path d="M410 354 Q432 369 451 351" fill="none" stroke="#9b5547" stroke-width="7"/>
+    <path d="M395 193 Q433 143 480 183 Q472 219 438 234Z" fill="#d7b56d"/>
+  </g>
+</svg>

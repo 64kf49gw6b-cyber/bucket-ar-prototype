@@ -27,17 +27,26 @@
     vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: false">
     <a-assets>
-      <img id="woman" src="./pointing-woman.svg">
+      <img id="woman-right" src="./pointing-woman.svg">
+      <img id="woman-left" src="./pointing-woman-left.svg">
+      <img id="woman-front" src="./pointing-woman-front.svg">
+      <img id="woman-back" src="./pointing-woman-back.svg">
     </a-assets>
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
     <a-entity id="target" mindar-image-target="targetIndex: 0">
-      <!-- The full illustration is one flat layer attached to the tracked target. -->
-      <a-image src="#woman" position="0 0 0.03" width="1.8" height="1.8" transparent="true"></a-image>
+      <!-- One direction is selected by the QR URL parameter. -->
+      <a-image id="avatar-right" src="#woman-right" position="0 0 0.03" width="1.8" height="1.8" transparent="true" visible="false"></a-image>
+      <a-image id="avatar-left" src="#woman-left" position="0 0 0.03" width="1.8" height="1.8" transparent="true" visible="false"></a-image>
+      <a-image id="avatar-front" src="#woman-front" position="0 0 0.03" width="1.8" height="1.8" transparent="true" visible="false"></a-image>
+      <a-image id="avatar-back" src="#woman-back" position="0 0 0.03" width="1.8" height="1.8" transparent="true" visible="false"></a-image>
     </a-entity>
   </a-scene>
   <script>
     const state = document.getElementById('state');
     const target = document.getElementById('target');
+    const direction = new URLSearchParams(location.search).get('d') || 'right';
+    const avatar = document.getElementById(`avatar-${direction}`) || document.getElementById('avatar-right');
+    avatar.setAttribute('visible', 'true');
     target.addEventListener('targetFound', () => { state.textContent = '目印を認識中 — 指先の方向を確認してください'; });
     target.addEventListener('targetLost', () => { state.textContent = '桶の目印にカメラを向けてください'; });
   </script>
