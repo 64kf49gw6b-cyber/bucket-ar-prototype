@@ -19,12 +19,12 @@
 <body>
   <div class="hint"><strong>桶の目印にカメラを向けてください</strong><span>目印ごとに違う向きの女性が表示されます</span></div>
   <div class="state" id="state">カメラを起動しています…</div>
-  <a-scene mindar-image="imageTargetSrc: ./targets.mind; autoStart: true; uiScanning: false; maxTrack: 4;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights: true" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+  <a-scene mindar-image="imageTargetSrc: ./targets.mind?v=2; autoStart: true; uiScanning: false; maxTrack: 4;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights: true" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
     <a-assets>
-      <img id="woman-right" src="./pointing-woman.svg">
-      <img id="woman-left" src="./pointing-woman-left.svg">
-      <img id="woman-front" src="./pointing-woman-front.svg">
-      <img id="woman-back" src="./pointing-woman-back.svg">
+      <img id="woman-right" src="./pointing-woman.svg?v=2">
+      <img id="woman-left" src="./pointing-woman-left.svg?v=2">
+      <img id="woman-front" src="./pointing-woman-front.svg?v=2">
+      <img id="woman-back" src="./pointing-woman-back.svg?v=2">
     </a-assets>
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
     <a-entity mindar-image-target="targetIndex: 0"><a-image src="#woman-right" position="0 0 0.03" width="1.8" height="1.8" transparent="true"></a-image></a-entity>
